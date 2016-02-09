@@ -2,9 +2,14 @@ build:
   image: debian:latest
   commands:
     - apt-get update
-    - apt-get install build-essential git cmake python
-    - ./submodules/cmake-builder/prepare.py flexisip -DENABLE_SOCI=YES
+    - apt-get install build-essential git cmake python pkg-config
+    - rm -rf WORK
+    - ./submodules/cmake-builder/prepare.py flexisip
 
 clone:
   depth: 50
   recursive: true
+
+cache:
+  mount:
+    - .git
