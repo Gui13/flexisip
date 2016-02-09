@@ -2,6 +2,8 @@ build:
   image: centos:7
   commands:
     - yum install -y cmake make soci-devel git soci-mysql-plugin gcc g++ openssl-devel
-    - git submodules update --init --recursive
     - ./submodules/cmake-builder/prepare.py flexisip -DENABLE_SOCI=YES
 
+clone:
+  depth: 50
+  recursive: true
