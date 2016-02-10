@@ -2,9 +2,10 @@ build:
   image: debian:latest
   commands:
     - apt-get update
-    - apt-get install build-essential git cmake python pkg-config
+    - apt-get install build-essential git cmake python pkg-config intltool
     - rm -rf WORK
     - ./submodules/cmake-builder/prepare.py flexisip
+    - make -C WORK/flexisip/cmake
 
 clone:
   depth: 50
